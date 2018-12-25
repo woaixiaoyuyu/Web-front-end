@@ -1,4 +1,5 @@
 //整理自JavaScript面向对象编程指南（第2版）
+一、调用函数
 1. --执行任意的参数
 我们还可以创建一些在参数数量方面更为灵活的函数。
 这得益于函数内部的arguments 变量，该变量为内建变量，每个函数中都能调用。
@@ -23,3 +24,17 @@ function sumOnSteroids() {
     }
   return res;
 } 
+
+二、预定义函数
+JavaScript 引擎中有一组可供随时调用的内建函数
+/*
+parseInt()；
+parseFloat()；
+isNaN()；
+isFinite()；
+encodeURI()；
+decodeURI()；
+encodeURIComponent()；
+decodeURIComponent()；
+eval()
+*/
