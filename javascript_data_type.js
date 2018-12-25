@@ -4,3 +4,10 @@
 "number"
 > n3;
 255 
+
+2.用 0x 前缀来表示一个十六进制值
+> var n5 = 0xff;
+> typeof n5;
+"number"
+> n5;
+255 
