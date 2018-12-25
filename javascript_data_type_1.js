@@ -1,4 +1,5 @@
 //整理自JavaScript面向对象编程指南（第2版）
+//variable
 一、数字
 1. --当一个数字以 0 开头时，就表示这是一个八进制数
 > var n3 = 0377;
@@ -130,3 +131,55 @@ e.g.
 true
 >1==='1'
 false
+
+四、 undefined 与 null
+1. --undefined
+当我们尝试使用一个不存在的变量时，控制台中就会产生以下错误信息：
+> foo;
+ReferenceError: foo is not defined
+
+但当对不存在的变量使用 typeof 操作符时则不会出现这样的错误，而是会返回一个
+字符串"undefined"。
+> typeof foo;
+"undefined"
+
+如果我们在声明一个变量时没有对其进行赋值，调用该变量时并不会出错，但 typeof
+操作符依然会返回"undefined"：
+> var somevar;
+> somevar;
+> typeof somevar;
+"undefined" 
+
+2. --null
+> var somevar = null;
+null
+> somevar;
+null
+> typeof somevar;
+"object" 
+
+3. --两者的区别
+> var i = 1 + undefined;
+> i;
+NaN
+> var i = 1 + null;
+> i;
+1
+
+转换成数字：
+> 1 * undefined;
+NaN
+> 1 * null;
+0 
+
+转换成布尔值：
+> !!undefined;
+false
+> !!null;
+false
+
+转换成字符串：
+> "value: " + null;
+"value: null"
+> "value: " + undefined;
+"value: undefined" 
