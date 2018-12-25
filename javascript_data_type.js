@@ -11,3 +11,10 @@
 "number"
 > n5;
 255 
+
+3.e指数
+> 2e+3; 
+2000
+> typeof 2e+3;
+"number" 
+
