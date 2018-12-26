@@ -36,3 +36,27 @@ e.g.
 3
 
 3. --回调函数
+既然函数与任何可以被赋值给变量的数据是相同的，那么它当然可以像其他数据那样被定义、删除、拷贝，以及当成参数传递给其他函数
+关键点就是函数做参数，很方便的操作
+e.g.1
+> function invokeAdd(a, b){
+    return a() + b();
+    }
+> function one() {
+    return 1;
+    }
+> function two() {
+    return 2;
+    }
+现在，我们只需将这两个函数传递给目标函数 invokeAdd()，就可以得到执行结果了：
+> invokeAdd(one, two);
+3 
+
+e.g.2 匿名函数非常优雅
+> invokeAdd(
+    function () { return 1; },
+    function () { return 2; }
+    );
+3
+
+e.g.3
