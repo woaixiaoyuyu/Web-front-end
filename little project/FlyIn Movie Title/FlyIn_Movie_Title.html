@@ -1,0 +1,63 @@
+<style>
+    /*@import url('https://fonts.googleapis.com/css?family=Montserrat:700');*/
+/*只设置 *{ color:red;}  初始化所有标签元素的字体颜色(包括body标签下的字体)为红色 */
+/*只设置body{ color:blue;}，p标签作为body标签的子标签，具有继承性，p标签会继承离他最近的父标签的属性*/
+body {
+    background-color: #ab4737;                          /*背景色*/
+    /*background-image-放射性渐变(radial-gradient),background: radial-gradient(shape size at position, start-color, ..., last-color);*/
+    background-image: radial-gradient(#330618, #a09b22);
+    background-size: cover;                             /*指定背景图像的大小*/
+    background-repeat: no-repeat;                       /*background-image不会重复*/
+    background-attachment: fixed;                       /*背景图像是固定的*/
+    color: #ff5b68;                                     /*字体颜色*/
+    text-align: center;                                 /*设置文本的对齐方式*/
+    width: 100vw;                                       /*一个段落的宽度*/
+    font-weight: 700;                                   /*设置不同的字体粗细,700 等同于 bold*/
+    /*如果元素中的内容超出了给定的宽度和高度属性，overflow 属性可以确定是否显示滚动条等行为*/
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;              /*指定段落的字体*/
+}
+
+#fly-in {
+font-size: 4em;                                         /*规定文本的大小*/
+margin: 40vh auto;                                      /*边距:上、右、左、下  ;  auto:浏览器计算外边距*/
+height: 20vh;                                           /*设置一个段落的高度*/
+text-transform: uppercase;                              /*改成大写*/
+}
+
+#fly-in span {
+display: block;
+font-size: .4em;
+opacity: .5;                                            /*透明度*/
+}
+
+#fly-in div {
+position: absolute;                                     /*定位*/
+margin: 2vh 0;
+opacity: 0;
+left: 10vw;
+width: 80vw;
+animation: switch 16s linear infinite;                  /*绑定动画switch，时常32s*，重复无数次*/
+}
+
+#fly-in div:nth-child(2) { animation-delay: 4s}         /*每个 div 元素匹配父元素中第 2 个子元素*/
+#fly-in div:nth-child(3) { animation-delay: 8s}         /*等待6s，然后开始动画*/
+#fly-in div:nth-child(4) { animation-delay: 12s}
+
+/*关键词 "from" 和 "to"，等同于 0% 和 100%，0% 是动画的开始，100% 是动画的完成*/
+@keyframes switch {
+0% { opacity: 0;filter: blur(20px); transform:scale(12)}  /*filter 属性定义了元素(通常是<img>)的可视效果*/
+3% { opacity: 1;filter: blur(0); transform:scale(1)}      /*给图像设置高斯模糊*/
+10% { opacity: 1;filter: blur(0); transform:scale(.9)}    /*scale(x[,y]?) 定义 2D 缩放转换*/
+13% { opacity: 0;filter: blur(10px); transform:scale(.1)}
+80% { opacity: 0}
+100% { opacity: 0}
+}
+</style>
+
+<div id="fly-in">
+    <div><span>Very</span>Lucky</div>
+    <div><span>To</span>Meet you</div>
+    <div>I love you xiaoyuyu<span> for eternity</span></div>
+    <div><span>Just CSS</span> and HTML</div>
+</div>
