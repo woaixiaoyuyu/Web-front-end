@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #placeholder{
+        width: 400px;
+        height:400px;
+    }
+    body{
+        background-color: #a03b15;
+        color: bisque;
+        margin: 1em 10%;
+    }
+    li{
+        float: left;
+        padding: 1em;
+    }
+    img{
+        display: block;
+        clear: both;
+    }
+    h1{
+        color: #333;
+        background-color: transparent;
+    }
+    ul{
+        padding: 0;
+    }
+    #imagegallery{
+        list-style: none;
+        display: inline;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+</head>
+<body>
+<h1>Snapshots</h1>
+<ul id="imagegallery">
+    <li>
+        <!--支持平稳退化，并且JS与html分离-->
+        <a href="images/xiaoyuyu.jpg" title="A rabbit">rabbit</a>
+    </li>
+    <li>
+        <a href="images/dog.png" title="A dog">dog</a>
+    </li>
+    <li>
+        <a href="images/NBA.jpg" title="NBA">nba</a>
+    </li>
+</ul>
+<img id="placeholder" src="images/draw_map.jpg" alt="My image gallery"/>
+<p id="description">Choose an image</p>
+<script src="test4.js"></script>
+</body>
+</html>
