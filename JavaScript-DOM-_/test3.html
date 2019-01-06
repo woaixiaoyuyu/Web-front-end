@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #placeholder{
+        width: 400px;
+        height:400px;
+    }
+    body{
+        background-color: #a03b15;
+        color: bisque;
+        margin: 1em 10%;
+    }
+    li{
+        float: left;
+        padding: 1em;
+        list-style: none;
+    }
+    img{
+        display: block;
+        clear: both;
+    }
+    h1{
+        color: #333;
+        background-color: transparent;
+    }
+    ul{
+        padding: 0;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+</head>
+<body>
+    <h1>Snapshots</h1>
+    <ul>
+        <li>
+            <a href="images/xiaoyuyu.jpg" title="A rabbit" onclick="showPic(this); return false;">rabbit</a>
+        </li>
+        <li>
+            <a href="images/dog.png" title="A dog" onclick="showPic(this); return false;">dog</a>
+        </li>
+        <li>
+            <a href="images/NBA.jpg" title="NBA" onclick="showPic(this); return false;">nba</a>
+        </li>
+    </ul>
+    <img id="placeholder" src="images/draw_map.jpg" alt="My image gallery"/>
+    <p id="description">Choose an image</p>
+    <script src="test3.js"></script>
+</body>
+</html>
