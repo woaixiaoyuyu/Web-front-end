@@ -1,0 +1,9 @@
+body{
+    /*font-size: 10pt;*/
+    font-family: 'Helvatica','Arial',sans-serif;
+}
+abbr{
+    text-decoration: none;
+    font-style: normal;
+    border: 0;
+}
