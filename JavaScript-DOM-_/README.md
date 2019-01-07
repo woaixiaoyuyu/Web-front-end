@@ -5,5 +5,5 @@ chapter 3
 chapter 4
 ### 3.test4
 chapter 6
-### 3.test5/test6
+### 3.test5/test6/ajax
 chapter 7
