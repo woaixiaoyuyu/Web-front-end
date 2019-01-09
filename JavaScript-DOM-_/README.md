@@ -9,5 +9,5 @@ chapter 6
 chapter 7
 ### 4.explanation
 chapter 8
-### 5.story
+### 5.story/itinerary
 chapter 9
