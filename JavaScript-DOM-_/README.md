@@ -11,5 +11,5 @@ chapter 7
 chapter 8
 ### 5.story/itinerary
 chapter 9
-### 6.message
+### 6.message/list
 chapter 10
