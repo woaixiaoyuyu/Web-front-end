@@ -13,5 +13,5 @@ chapter 8
 chapter 9
 ### 6.message/list
 chapter 10
-### 7.grayscale
+### 7.grayscale/movie
 chapter 11
