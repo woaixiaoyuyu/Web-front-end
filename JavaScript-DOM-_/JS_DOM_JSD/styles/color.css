@@ -1,0 +1,95 @@
+body{
+    color: #fb5;
+    background: #a04516;
+}
+
+a:link{
+    color: #445;
+    background-color: #eb6;
+}
+
+a:visited{
+    color: #345;
+    background-color: #eb6;
+}
+
+a:hover{
+    color: #667;
+    background-color: #eb6;
+}
+
+a:active{
+    color: #778;
+    background-color: #eb6;
+}
+
+article{
+    color: #233;
+    background-color: #eeb622;
+    border-color: #667;
+}
+
+header{
+    color: #ec8;
+    background-color: #334;
+    border-color: #667;
+}
+
+header{
+    color: #455;
+    background-color: #991820;
+    border-color: #667;
+}
+
+header nav ul{
+    border-color: #99a;
+}
+
+header nav a:link,header nav a:visited{
+    color: #eef;
+    border-color: #99a;
+    background-color: transparent;
+}
+
+header nav a:hover{
+    color: #983415;
+    border-color: #eb6;
+}
+
+header nav a:active{
+    color: #667;
+    border-color: #ec8;
+}
+
+header nav a.here:link,
+header nav a.here:visited,
+header nav a.here:hover,
+header nav a.here:active{
+    color: #ff8b69;
+    background-color: #f7ec9d;
+}
+
+#home{
+    opacity:0.8;
+    width: 200px;
+}
+
+#about{
+    opacity:0.8;
+    width: 200px;
+}
+
+#contact{
+    opacity:0.8;
+    width: 200px;
+}
+
+#live{
+    opacity:0.8;
+    width: 200px;
+}
+
+#photos{
+    opacity:0.8;
+    width: 200px;
+}

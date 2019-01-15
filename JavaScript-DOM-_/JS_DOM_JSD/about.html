@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #autumn{
+        opacity:0.9;
+        width: 250px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>About</title>
+    <script src="scripts/modernizr.custom.63152.js"></script>
+    <link rel="stylesheet" media="screen" href="styles/basic.css">
+</head>
+<body>
+<header>
+    <div>
+        <img src="images/wenzhuan1.jpg" id="autumn"/>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="live.html">Live</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+<article>
+    <p id="intro">
+        Welcome to the official website of PWN.<br>
+        Here you can <a href="about.html" title="About">learn more about PWN.</a><br>
+        View <a href="photos.html" title="Photos">photos of PWN.</a><br>
+        Find out about <a href="live.html" title="Live">learning dates,</a>
+        and <a href="contact.html" title="Contact">get in touch with PWN.</a>
+    </p>
+    <br>
+    <h1>About overflow</h1>
+    <nav>
+        <ul>
+            <li><a href='#stack'>Stack</a></li>
+            <li><a href='#file'>IO_FILE</a></li>
+        </ul>
+    </nav>
+    <section id="stack">
+        <h2>Stack</h2>
+        <p>Padding + EBP + EIP?</p>
+        <p>栈溢出指的是程序向栈中某个变量中写入的字节数超过了这个变量本身所申请的字节数，因而导致与其相邻的栈中的变量的值被改变。<br>
+            这种问题是一种特定的缓冲区溢出漏洞，类似的还有堆溢出，bss 段溢出等溢出方式。<br>
+            栈溢出漏洞轻则可以使程序崩溃，重则可以使攻击者控制程序执行流程。<br>
+            此外，我们也不难发现，发生栈溢出的基本前提是:<br>
+            1.程序必须向栈上写入数据。<br>
+            2.写入的数据大小没有被良好地控制</p>
+    </section>
+    <section id="file">
+        <h2>IO_FILE</h2>
+        <p>Linux 中文件流的特性（FILE），我们可以得知 Linux 中的一些常见的 IO 操作函数都需要经过 FILE 结构进行处理。<br>
+            尤其是_IO_FILE_plus 结构中存在 vtable，一些函数会取出 vtable 中的指针进行调用。<br>
+            因此伪造 vtable 劫持程序流程的中心思想就是针对_IO_FILE_plus 的 vtable 动手脚，
+            通过把 vtable 指向我们控制的内存，并在其中布置函数指针来实现。<br>
+            因此 vtable 劫持分为两种，一种是直接改写 vtable 中的函数指针，通过任意地址写就可以实现。<br>
+            另一种是覆盖 vtable 的指针指向我们控制的内存，然后在其中布置函数指针</p>
+    </section>
+    <blockquote cite="https://ma9p13.wordpress.com/" id="quote"><br></blockquote>
+</article>
+<script src="scripts/global.js"></script>
+</body>
+</html>
