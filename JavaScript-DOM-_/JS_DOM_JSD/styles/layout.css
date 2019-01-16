@@ -38,6 +38,19 @@ header nav{
     padding-left: 10%;
 }
 
+dl{
+    overflow: hidden;
+}
+
+dt{
+    float: left;
+    margin-right: 1em;
+}
+
+dd{
+    float: left;
+    margin-right: 3em;
+}
 header nav ul {
     width: 100%;
     overflow: hidden;
