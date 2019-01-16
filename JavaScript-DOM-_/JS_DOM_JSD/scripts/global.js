@@ -195,7 +195,7 @@ addloadEvent(preparePlaceholder);
 function prepareGallery() {
     if(!document.getElementsByTagName) return false;
     if(!document.getElementById) return false;
-    if(!document.getElementById('imagegallery'));
+    if(!document.getElementById('imagegallery')) return false;
     var gallery= document.getElementById('imagegallery');
     var links = gallery.getElementsByTagName('a');
     for(var i=0; i<links.length; i++){
@@ -206,3 +206,19 @@ function prepareGallery() {
 }
 
 addloadEvent(prepareGallery);
+
+function highlightRows() {
+    if(!document.getElementsByTagName) return false;
+    var rows = document.getElementsByTagName('tr');
+    for(var i=0; i<rows.length; i++){
+        rows[i].oldClassName = rows.className;
+        rows[i].onmouseover = function () {
+            addClass(this,'highlight');
+        }
+        rows[i].onmouseout = function () {
+            this.className = this.oldClassName;
+        }
+    }
+}
+
+addloadEvent(highlightRows);
