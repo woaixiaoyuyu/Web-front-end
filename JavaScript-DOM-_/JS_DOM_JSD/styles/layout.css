@@ -87,3 +87,11 @@ article{
     outline-width: 0;
     position: relative;
 }
+
+label{
+    display: block;
+}
+
+fieldset{
+    border: 0;
+}
