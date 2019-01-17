@@ -260,3 +260,59 @@ function displayAbbreviations() {
 }
 
 addloadEvent(displayAbbreviations);
+
+function displayAjaxLoading(element) {
+    while (element.hasChildNodes()) element.removeChild(element.lastChild);
+    var content = document.createElement('img');
+    content.setAttribute('src','images/ajax-loader.gif');
+    content.setAttribute('alt','Loading……');
+    element.appendChild(content);
+}
+
+function submitFormWithAjax(whichform,thetarget) {
+    var request = new XMLHttpRequest();
+    if(!request) return false;
+    displayAjaxLoading(thetarget);
+    var dataParts = [];
+    var element;
+    for(var i=0; i<whichform.elements.length; i++){
+        element = whichform.elements[i];
+        dataParts[i] = element.name + '=' + encodeURIComponent(element.value);
+    }
+    var data = dataParts.join('$');
+    request.open('POST',whichform.getAttribute('action'),true);
+    request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    request.onreadystatechange = function () {
+        if(request.readyState===4){
+            if(request.status===200 ||request.status===0){
+                var matches = request.responseText.match(/<article>([\s\S]+)<\/article>/);
+                if(matches.length>0){
+                    thetarget.innerHTML = matches[1];
+                }
+                else{
+                    thetarget.innerHTML = '<p>Oops, there was an error. Sorry.</p>';
+                }
+            }
+            else{
+                thetarget.innerHTML = '<p>' + request.statusText + '</p>';
+            }
+        }
+    };
+    request.send(data);
+    return true;
+}
+
+function prepareForms() {
+    for(var i=0; i<document.forms.length; i++){
+        var thisform = document.forms[i];
+        // resetFields(thisform);
+        thisform.onsubmit = function () {
+            // if(!validateForm(this)) return false;
+            var article = document.getElementsByTagName('article')[0];
+            if(submitFormWithAjax(this,article)) return false;
+            return true;
+        }
+    }
+}
+
+addloadEvent(prepareForms);
