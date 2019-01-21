@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+</head>
+<body>
+<section>
+    <h1>W3C</h1>
+    <article>
+        <h2>CSS</h2>
+        <p>全称 Cascading Style Sheet</p>
+    </article>
+    <h2>HTML</h2>
+    <p>全称 Hypertext Markup Language</p>
+</section>
+</body>
+</html>
