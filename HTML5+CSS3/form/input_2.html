@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input2</title>
+</head>
+<body>
+<h2>Your favourite city:</h2>
+<form autocomplete="on">
+    <input type="text" id="city" list="cityList">
+    <datalist id="cityList" style="display: none;">
+        <option value="Beijing"></option>
+        <option value="Guangzhou"></option>
+        <option value="Shanghai"></option>
+        <option value="Hangzhou"></option>
+    </datalist>
+</form>
+<form>
+    <p>请仔细阅读许可协议：</p>
+    <p>
+        <label for="textareal1"></label>
+        <textarea name="textareal1" id="textareal1" cols="45" rows="5">许可协议具体内容</textarea>
+    </p>
+    <p>
+        <input type="submit" value="agree" autofocus="autofocus">
+        <input type="submit" value="disagree">
+    </p>
+</form>
+<p>请选择要上传的多个文件：</p>
+<input type="file" name="img" multiple>
+<form action="/testform.asp" method="get">
+    <p>请输入邮政编码：</p>
+    <input type="text" name="zip_code" pattern="[0-9]{6}" placeholder="请输入6位数邮政编码">
+    <p>请选择加密强度：<keygen name="security" /></p>
+    <input type="submit">
+</form>
+</body>
+</html>
