@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Curve1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="200"></canvas>
+<script>
+    draw();
+    function draw() {
+        var c = document.getElementById('myCanvas');
+        var context = c.getContext('2d');
+        context.beginPath();
+        context.moveTo(80,50);
+        context.quadraticCurveTo(100,100,200,30);
+        // context.closePath();
+        context.stroke();
+    }
+</script>
+</body>
+</html>

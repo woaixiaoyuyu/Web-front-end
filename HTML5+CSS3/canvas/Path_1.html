@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Path1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="200"></canvas>
+<script>
+    draw();
+    function draw() {
+        var c = document.getElementById('myCanvas');
+        var context = c.getContext('2d');
+        context.beginPath();
+        context.moveTo(75,50);
+        context.lineTo(100,25);
+        context.lineTo(100,75);
+        context.closePath();
+        context.stroke();
+        context.fillStyle = '#ff8c0e';
+        context.fill();
+    }
+</script>
+</body>
+</html>

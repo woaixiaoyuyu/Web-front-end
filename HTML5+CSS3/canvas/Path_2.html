@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Path2</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="200"></canvas>
+<script>
+    draw();
+    function draw() {
+        var c = document.getElementById('myCanvas');
+        var context = c.getContext('2d');
+        context.beginPath();
+        context.arc(75,75,50,0,Math.PI*2,true);
+        context.moveTo(110,75);
+        context.arc(75,75,35,0,Math.PI,false);
+        context.closePath();
+        context.moveTo(65,65);
+        context.arc(60,65,5,0,Math.PI*2,true);
+        context.moveTo(95,65);
+        context.arc(90,65,5,0,Math.PI*2,true);
+        context.closePath();
+        context.stroke();
+        context.fillStyle = '#ff8c0e';
+        // context.fill();
+    }
+</script>
+</body>
+</html>
