@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate</title>
+</head>
+<body>
+<h1>HTML5表单验证</h1>
+<form method="post" name="myform" class="form" action="">
+    <label for="user_name">Name<br/>
+    <input type="text" id="user_name" name="user_name" required></label><br/>
+    <label for="user_list">Name<br/>
+        <input type="text" id="user_list" name="list" list="projectlist" required></label><br/>
+    <datalist id="projectlist">
+        <option value="badminton"></option>
+        <option value="basketball"></option>
+        <option value="swimming"></option>
+        <option value="football"></option>
+    </datalist>
+    <label for="user_email">Email<br/>
+        <input type="email" id="user_email" name="user_email" required></label><br/>
+    <label for="user_tel">Phone number<br/>
+        <input type="tel" id="user_tel" name="user_tel" required></label><br/>
+    <label for="user_id">ID<br/>
+        <input type="text" id="user_id" name="user_id" required></label><br/>
+    <label for="user_birth">Birth<br/>
+        <input type="month" id="user_birth" name="user_birth" required></label><br/>
+    <label for="user_rank">Rank<br/>
+        <input type="text" id="user_rank" name="user_rank" required></label><br/>
+    <button type="submit" name="submit" value="Submit">Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<form>
+    <h1>Register</h1>
+    <p>ID(请使用Email注册):<input type="email" name="email" required></p>
+    <p>Password:<input type="password" name="password" required></p>
+    <p>Birth:<input type="date" name="date" required></p>
+    <p>Nationality:<input type="text" id="list" list="nationality" required></p>
+    <datalist id="nationality">
+        <option value="China"></option>
+        <option value="America"></option>
+        <option value="Australia"></option>
+        <option value="Germany"></option>
+    </datalist>
+    <p>Head sculpture:<input name="img" type="file" accept="image/*" required></p>
+    <table>
+        <tr>
+            <td><button type="add" template="questionId">+</button>保密问题</td>
+            <td>答案</td>
+            <td></td>
+        </tr>
+        <tr id="questionId" repeat="template" repeat-start="1" repeat-min="1" repeat-max="3">
+            <td><input type="text" name="question[questionId].q"></td>
+            <td><input type="text" name="question[questionId].a"></td>
+            <td><button type="reset">删除</button></td>
+        </tr>
+    </table>
+    <p><input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>
