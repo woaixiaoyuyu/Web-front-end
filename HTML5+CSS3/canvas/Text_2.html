@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="200"></canvas>
+<script>
+    function draw() {
+        var context = document.getElementById('myCanvas').getContext('2d');
+        context.font = '40px Georgia';
+        context.fillStyle = '#ff7851';
+        context.fillText('Hi, my name is xiaoyuyu',10,50);
+        context.font = '50px Verdana';
+        var gradient = context.createLinearGradient(0,0,500,0);
+        gradient.addColorStop(0,'magenta');
+        gradient.addColorStop(0.5,'blue');
+        gradient.addColorStop(1,'red');
+        context.fillStyle = gradient;
+        context.fillText('woaixiaoyuyu',10,120);
+    }
+    draw();
+</script>
+</body>
+</html>
