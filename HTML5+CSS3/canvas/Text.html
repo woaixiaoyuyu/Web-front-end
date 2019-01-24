@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Text</title>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="200"></canvas>
+<script>
+    function draw() {
+        var c = document.getElementById('myCanvas');
+        var context = c.getContext('2d');
+        context.shadowOffsetX =4;
+        context.shadowOffsetY =4;
+        context.shadowBlur = 4;
+        context.shadowColor = '#ffaf0a';
+        context.font = '60px Times New Roman';
+        context.fillStyle = '#ff301f';
+        context.fillText('wo ai xiaoyuyu',100,100);
+    }
+    draw();
+</script>
+</body>
+</html>
