@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid rgb(255,0,0);
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Change1</title>
+</head>
+<body>
+<canvas id="myCanvas" height="200" width="300"></canvas>
+<script>
+    function draw() {
+        context = document.getElementById('myCanvas').getContext('2d');
+        var lingrad = context.createLinearGradient(0,0,0,200);
+        lingrad.addColorStop(0,'#ff7512');
+        lingrad.addColorStop(1/7,'#ff680d');
+        lingrad.addColorStop(2/7,'#ff3f0c');
+        lingrad.addColorStop(3/7,'#ff1213');
+        lingrad.addColorStop(4/7,'#ff0b49');
+        lingrad.addColorStop(5/7,'#ff1aa2');
+        lingrad.addColorStop(6/7,'#ff00ff');
+        lingrad.addColorStop(1,'#f237ff');
+        context.fillStyle = lingrad;
+        context.strokeStyle = lingrad;
+        context.fillRect(0,0,300,200);
+    }
+    draw();
+</script>
+</body>
+</html>

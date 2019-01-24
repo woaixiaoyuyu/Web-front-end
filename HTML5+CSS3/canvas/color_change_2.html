@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid rgb(255,0,0);
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Change2</title>
+</head>
+<body>
+<canvas id="myCanvas" height="200" width="300"></canvas>
+<script>
+    function draw() {
+        context = document.getElementById('myCanvas').getContext('2d');
+        var radgrad = context.createRadialGradient(150,100,0,150,100,100);
+        radgrad.addColorStop(0,'#d32a80');
+        radgrad.addColorStop(0.8,'#9f0d30');
+        radgrad.addColorStop(0.9,'#9f3706');
+        radgrad.addColorStop(1,'rgb(1,159,98,0)');
+        context.fillStyle = radgrad;
+        context.fillRect(0,0,300,200);
+    }
+    draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Color1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="150" height="150"></canvas>
+<script>
+    draw();
+    function draw() {
+        var c = document.getElementById('myCanvas');
+        var context = c.getContext('2d');
+        context.fillStyle = '#FD0';
+        context.fillRect(0,0,75,75);
+        context.fillStyle = '#6C0';
+        context.fillRect(75,0,75,75);
+        context.fillStyle = '#09F';
+        context.fillRect(0,75,75,75);
+        context.fillStyle = '#ff75c6';
+        context.fillRect(75,75,75,75);
+        context.globalAlpha = 0.2;
+        for(var i=0; i<7; i++){
+            context.fillStyle = '#ff1521';
+            context.beginPath();
+            context.arc(75,75,10+10*i,0,Math.PI*2,true);
+            context.fill();
+        }
+    }
+</script>
+</body>
+</html>

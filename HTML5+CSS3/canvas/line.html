@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ee910a;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Line</title>
+</head>
+<body>
+<canvas id="myCanvas" width="350" height="250"></canvas>
+<script>
+    var context = document.getElementById('myCanvas').getContext('2d');
+    var offset = 0;
+    function draw() {
+        context.clearRect(0,0,400,300);
+        context.setLineDash([4,4]);
+        context.lineDashOffset = -offset;
+        context.strokeRect(50,50,200,100);
+    }
+    function march() {
+        offset++;
+        if(offset>16){
+            offset = 0;
+        }
+        draw();
+        setTimeout(march,50);
+    }
+    march();
+</script>
+</body>
+</html>
