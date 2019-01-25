@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ff971f;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>IMG2</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+    function draw() {
+        context = document.getElementById('myCanvas').getContext('2d');
+        var img = new Image();
+        img.src = 'images/xiaoyuyu.jpg';
+        img.onload = function () {
+            context.drawImage(img,0,0);
+            var imgdata = context.getImageData(0,0,img.width,img.height);
+            for(var i=0, n=imgdata.data.length; i<n; i+=4){
+                imgdata.data[i] = 255 - imgdata.data[i];
+                imgdata.data[i+1] = 255 - imgdata.data[i+2];
+                imgdata.data[i+2] = 255 - imgdata.data[i+1];
+            }
+            context.putImageData(imgdata,0,0);
+        }
+    }
+    draw();
+</script>
+</body>
+</html>

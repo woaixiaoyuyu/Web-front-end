@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ff971f;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>IMG3</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="200"></canvas><br><br>
+<button id="save">Save</button>
+<button id="download">Download</button>
+<script>
+    window.onload = function() {
+        draw();
+      var save = document.getElementById('save');
+      bindButtonEvent(save,'click',saveImage);
+        var download = document.getElementById('download');
+        bindButtonEvent(download,'click',downloadImage);
+    };
+    function draw() {
+        context = document.getElementById('myCanvas').getContext('2d');
+        context.fillStyle = 'rgba(125,46,138,0.5)';
+        context.fillRect(25,25,100,100);
+        context.fillStyle = 'rgba(0,146,38,0.5)';
+        context.fillRect(58,74,125,100);
+        context.fillStyle = 'rgba(0,0,0,1)';
+    }
+    function bindButtonEvent(element,type,handler) {
+        if(element.addEventListener){
+            element.addEventListener(type,handler,false);
+        }
+        else{
+            element.attachEvent('on'+type,handler); //IE
+        }
+    }
+    function saveImage() {
+        var mycanvas = document.getElementById('myCanvas');
+        var image = mycanvas.toDataURL('image/png');
+        var w = window.open('about:canvas','images from canvas');
+        w.document.write('<img src="'+image+'" alt="from canvas"/>');
+    }
+    function downloadImage() {
+        var mycanvas = document.getElementById('myCanvas');
+        var image = mycanvas.toDataURL('image/png').replace('image/png','image/octet-stream');
+        window.location.href = image;
+    }
+</script>
+</body>
+</html>
