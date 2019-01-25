@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ff971f;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="200"></canvas><br><br>
+<button id="grey">Grey</button>
+<button id="reverse">Reverse</button>
+<script>
+    window.onload = function() {
+        draw();
+        var grey = document.getElementById('grey');
+        bindButtonEvent(grey,'click',greyImage);
+        var reverse = document.getElementById('reverse');
+        bindButtonEvent(reverse,'click',reverseImage);
+    };
+    function draw() {
+        context = document.getElementById('myCanvas').getContext('2d');
+        image = new Image();
+        image.src = 'images/xiaoyuyu.jpg';
+        image.onload = function () {
+            context.drawImage(image,0,0);
+        }
+    }
+    function bindButtonEvent(element,type,handler) {
+        if(element.addEventListener){
+            element.addEventListener(type,handler,false);
+        }
+        else{
+            element.attachEvent('on'+type,handler); //IE
+        }
+    }
+    function greyImage() {
+        var image = new Image();
+        image.src = 'images/xiaoyuyu.jpg';
+        context.drawImage(image,0,0);
+        var imgdata = context.getImageData(0,0,image.width,image.height);
+        for(var i=0, n=imgdata.data.length; i<n; i+=4){
+            imgdata.data[i] = (imgdata.data[i]+imgdata.data[i+1]+imgdata.data[i+2])/3;
+            imgdata.data[i+1] = (imgdata.data[i]+imgdata.data[i+1]+imgdata.data[i+2])/3;
+            imgdata.data[i+2] = (imgdata.data[i]+imgdata.data[i+1]+imgdata.data[i+2])/3;
+        }
+        context.putImageData(imgdata,0,0);
+    }
+    function reverseImage() {
+        var image = new Image();
+        image.src = 'images/xiaoyuyu.jpg';
+        image.onload = context.drawImage(image,0,0);
+        var imgdata = context.getImageData(0,0,image.width,image.height);
+        for(var i=0, n=imgdata.data.length; i<n; i+=4){
+            imgdata.data[i] = 255 - imgdata.data[i];
+            imgdata.data[i+1] = 255 - imgdata.data[i+2];
+            imgdata.data[i+2] = 255 - imgdata.data[i+1];
+        }
+        context.putImageData(imgdata,0,0);
+    }
+</script>
+</body>
+</html>

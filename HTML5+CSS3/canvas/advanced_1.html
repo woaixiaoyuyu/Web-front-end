@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ff971f;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="240"></canvas>
+<script>
+    var globalId, i=0;
+    function draw(id) {
+        globalId = id;
+        setInterval(Composite,1000);
+    }
+
+    /**
+     * @return {boolean}
+     */
+    function Composite() {
+        var canvas = document.getElementById(globalId);
+        if(canvas == null) return false;
+        var context = canvas.getContext('2d');
+        var options = ['source-atop', 'source-in', 'source-out',
+            'source-over','destination-atop', 'destination-in',
+            'destination-out', 'destination-over', 'lighter',
+            'xor', 'copy'];
+        if(i>options.length) i=0;
+        context.clearRect(0,0,canvas.width,canvas.height);
+        context.save();
+        context.font = '30px Georgia';
+        context.fillText(options[i],240,130);
+        //picture1
+        context.fillStyle = '#ff1545';
+        context.fillRect(0,0,100,100);
+        context.globalCompositeOperation = options[i];
+        //picture2
+        context.beginPath();
+        context.fillStyle = '#fff717';
+        context.arc(100,100,100,0,Math.PI*2,false);
+        context.fill();
+        context.restore();
+        i++;
+    }
+    draw('myCanvas');
+</script>
+</body>
+</html>
