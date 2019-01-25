@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    canvas{
+        border: 1px solid #ff971f;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>IMG1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+    function draw() {
+        context = document.getElementById('myCanvas').getContext('2d');
+        var img = new Image();
+        img.onload = function () {
+            context.drawImage(img,0,0);
+            var ptrn = context.createPattern(img,'repeat');
+            context.fillStyle = ptrn;
+            context.fillRect(0,0,300,200);
+        };
+        img.src = 'images/xiaoyuyu.jpg';
+
+        var img2 =new Image();
+        img2.onload = function () {
+            context.drawImage(img2,0,200,400,400);
+        };
+        img2.src = 'images/xiaoyuyu.jpg';
+    }
+    draw();
+</script>
+</body>
+</html>
