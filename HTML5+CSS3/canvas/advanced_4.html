@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<style></style>
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced4</title>
+</head>
+<body>
+<canvas id="canvas" width="311" height="210"></canvas>
+<canvas id="zoom" width="200" height="200"></canvas><br>
+<label for="smooth">
+    <input type="checkbox" id="smooth" name="smooth" checked="checked">平滑放大
+</label>
+<script>
+    var img = new Image();
+    img.src = 'images/xiaoyuyu.jpg';
+    img.onload = function () {
+        draw(this);
+    }
+    function draw(img) {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        context.drawImage(img,0,0);
+        img.style.display = 'none';
+        var zoomcontext = document.getElementById('zoom').getContext('2d');
+        var smooth = document.getElementById('smooth');
+        var toggleSmooth = function (event) {
+            zoomcontext.imageSmoothingEnabled = this.checked;
+        }
+        smooth.addEventListener('change',toggleSmooth);
+        var zoom = function (event) {
+            var x = event.layerX;
+            var y = event.layerY;
+            zoomcontext.drawImage(img,Math.abs(x-5),Math.abs(y-5),10,10,0,0,200,200);
+        }
+        canvas.addEventListener('mousemove',zoom);
+    }
+</script>
+</body>
+</html>
