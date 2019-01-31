@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    ul{
+        list-style-type: none;
+        padding: 3px 6px;
+    }
+    ul li{
+        margin: 6px;
+    }
+    .title{
+        margin-top: 12px;
+    }
+    .status{
+        border: 1px solid #999999;
+        background-color: #cccccc;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body onload="pageload();">
+<form id="Login" action="#">
+    <fieldset>
+        <legend>用户登录</legend>
+        <ul>
+            <li>用户名：<input id="name" class="txt" type="text"></li>
+            <li>密&nbsp;&nbsp;&nbsp;码：<input id="password" class="txt" type="password"></li>
+            <li><input id="save" type="checkbox">是否保存密码</li>
+            <li><input name="btn" class="btn" type="button" value="登陆" onclick="btn_click();">
+                <input name="rst" class="btn" type="reset" value="取消" onclick="btn_click();"></li>
+            <li class="title"><span id="status"></span></li>
+        </ul>
+    </fieldset>
+</form>
+<script>
+    function pageload() {
+        var name = localStorage.getItem('name');
+        var pass= localStorage.getItem('pass');
+        if(name){
+            document.getElementById('name').value = name;
+        }
+        if(pass){
+            document.getElementById('password').value = pass;
+        }
+    }
+    
+    function btn_click() {
+        var name = document.getElementById('name').value;
+        var pass = document.getElementById('password').value;
+        localStorage.setItem('name',name);
+        if(document.getElementById('save').checked){
+            localStorage.setItem('pass',pass);
+        }
+        else {
+            localStorage.removeItem('pass');
+        }
+        document.getElementById('status').className = 'status';
+        document.getElementById('status').innerHTML = '登陆成功';
+    }
+</script>
+</body>
+</html>
