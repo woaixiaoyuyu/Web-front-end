@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flow</title>
+</head>
+<body>
+<h1>计数器</h1>
+<p class="msg" id="msg_1"></p>
+<p class="form_item">
+    <label fo="">Storage: </label>
+    <input type="text" name="text-1" value="" id="text-1">
+</p>
+<p class="form_item">
+    <input type="button" name="btn-1" value="session 保存" id="btn-1">
+    <input type="button" name="btn-2" value="session 读取" id="btn-2">
+    <input type="button" name="btn-3" value="local 保存" id="btn-3">
+    <input type="button" name="btn-4" value="local 读取" id="btn-4">
+</p>
+<p class="count_wrap">本页 session 访问次数： <span class="count" id="session_count"></span>
+    &nbsp;&nbsp;&nbsp;本页 local 访问次数： <span class="count" id="local_count"></span>
+</p>
+<script>
+    function getE(ele) {
+        return document.getElementById(ele);
+    }
+    var text_1 = getE('text-1');
+    var mag = getE('msg_1');
+    var btn_1 = getE('btn-1');
+    var btn_2 = getE('btn-2');
+    var btn_3 = getE('btn-3');
+    var btn_4 = getE('btn-4');
+    btn_1.onclick = function () {
+        sessionStorage.setItem('msg','sessionStorage = '+ text_1.value);
+    };
+    btn_2.onclick = function () {
+        mag.innerHTML = sessionStorage.getItem('msg');
+    };
+    btn_3.onclick = function () {
+        localStorage.setItem('msg','localStorage = '+ text_1.value);
+    };
+    btn_4.onclick = function () {
+        mag.innerHTML = localStorage.getItem('msg');
+    };
+    //记录页面次数
+    var local_count = localStorage.getItem('a_count')?localStorage.getItem('a_count'):0;
+    getE('local_count').innerHTML = local_count;
+    localStorage.setItem('a_count',local_count+1);
+    var session_count = sessionStorage.getItem('a_count')?sessionStorage.getItem('a_count'):0;
+    getE('session_count').innerHTML = session_count;
+    localStorage.setItem('a_count',session_count+1);
+</script>
+</body>
+</html>
